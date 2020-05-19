@@ -55,7 +55,9 @@ public class Model {
 				if(e == null) {
 					Graphs.addEdgeWithVertices(graph, r.getAp(), r.getAd(), r.getDistance());
 				} else {
-					
+					int peso = (int) graph.getEdgeWeight(e);
+					int newPeso = (peso + r.getDistance())/2;
+					graph.setEdgeWeight(e, newPeso);
 				}
 				
 				
