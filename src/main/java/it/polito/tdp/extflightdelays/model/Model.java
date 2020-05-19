@@ -52,8 +52,12 @@ public class Model {
 		for(Rotta r : dao.getRotteDistanceMin(minDistance, idMap)) {
 			if(this.graph.containsVertex(r.getAp()) && this.graph.containsVertex(r.getAd())) {
 				DefaultWeightedEdge e = this.graph.getEdge(r.getAp(), r.getAd());
+				if(e == null) {
+					Graphs.addEdgeWithVertices(graph, r.getAp(), r.getAd(), r.getDistance());
+				} else {
+					
+				}
 				
-				Graphs.addEdgeWithVertices(graph, r.getAp(), r.getAd(), r.getDistance());
 				
 			} 
 		}
