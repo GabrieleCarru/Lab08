@@ -163,9 +163,9 @@ public class ExtFlightDelaysDAO {
 		
 		List<Rotta> result = new ArrayList<Rotta>();
 		String sql = "select ORIGIN_AIRPORT_ID as s, DESTINATION_AIRPORT_ID as d, avg(DISTANCE) as peso " + 
-				"from flights " + 
-				"where DISTANCE > ?" + 
-				"group by ORIGIN_AIRPORT_ID, DESTINATION_AIRPORT_ID";
+				"from flights " +
+				"group by ORIGIN_AIRPORT_ID, DESTINATION_AIRPORT_ID " +
+				"having avg(DISTANCE) > ?";
 		
 		try {
 			
